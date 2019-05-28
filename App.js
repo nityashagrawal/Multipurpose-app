@@ -55,13 +55,13 @@ export default class App extends Component{
      
       return (
       <View style={styles.container}>
-        <ImageBackground
+        {/* <ImageBackground
           style={{
             flex: 1,
             resizeMode: 'center',
           }}
-          source={{ uri: 'https://static.tvtropes.org/pmwiki/pub/images/voldemort.jpg' }}>
-          <Text style={styles.welcome}>Multipurpose App </Text>
+          source={{ uri: 'https://static.tvtropes.org/pmwiki/pub/images/voldemort.jpg' }}> */}
+          <View style={styles.header}><Text style={styles.welcome}>Multipurpose App </Text></View>
           <View style={styles.row}>
             <TouchableOpacity style ={styles.button} onPress={this.find}>
               <Text>Find My IP!!</Text>
@@ -103,7 +103,7 @@ export default class App extends Component{
               <Text>Get the Time!!</Text>
             </TouchableOpacity></View>
             {(this.state.showtime)&&this.state.time&&<View><Text  style={styles.ip}>The Time is: {this.state.time.slice(11)}</Text></View>}
-        </ImageBackground>
+        {/* </ImageBackground> */}
         </View>
     );
   }
@@ -113,12 +113,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  header:{
+    backgroundColor: '#f2f2f2',
+    height:60,
+    // padding: 15,
+    // paddingBottom: 10,
+    margin: 10,
+    // shadowOpacity: 0.2,
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 100},
+    elevation: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   welcome: {
     fontSize: 30,
-    textAlign: 'center',
-    margin: 10,
-    fontWeight: '300',
-    color: 'magenta',
+    // textAlign: 'center',
+    // margin: 10,
+    fontWeight: '100',
+    color: 'black',
   },
   ip: {
     fontSize: 20,
@@ -138,21 +151,24 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin:5,
   },
   input1: {
     flex: 0.7,
     height: 40, 
     borderColor: 'gray',
     borderWidth: 2,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    margin:5,
   },
   input2: {
     flex: 0.5,
     height: 40, 
     borderColor: 'gray',
     borderWidth: 2,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    margin:5,
   }
 });

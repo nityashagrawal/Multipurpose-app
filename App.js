@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground,Linking} from 'react-native';
 export default class App extends Component{
 
   state = { 
@@ -52,7 +52,7 @@ export default class App extends Component{
   }
   
   render() {
-     
+  
       return (
       <View style={styles.container}>
         {/* <ImageBackground
@@ -103,6 +103,10 @@ export default class App extends Component{
               <Text>Get the Time!!</Text>
             </TouchableOpacity></View>
             {(this.state.showtime)&&this.state.time&&<View><Text  style={styles.ip}>The Time is: {this.state.time.slice(11)}</Text></View>}
+            {(this.state.showtime)&&!this.state.time&&<View style={styles.row}><Text style={styles.ip}>Not a Valid Timezone!</Text>
+            <TouchableOpacity style ={styles.button} onPress={() =>Linking.openURL('http://worldtimeapi.org/api/timezone')}>
+              <Text>List of Valid Timezones!</Text>
+            </TouchableOpacity></View>}
         {/* </ImageBackground> */}
         </View>
     );
@@ -112,6 +116,7 @@ export default class App extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-around'
   },
   header:{
     backgroundColor: '#f2f2f2',
@@ -122,7 +127,7 @@ const styles = StyleSheet.create({
     // shadowOpacity: 0.2,
     // shadowColor: '#000',
     // shadowOffset: { width: 0, height: 100},
-    elevation: 4,
+    elevation: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -138,6 +143,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '300',
     color: 'blue',
+    margin :5,
   },
   button: {
     fontSize: 20,
@@ -153,7 +159,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    margin:5,
+    marginHorizontal: 10,
   },
   input1: {
     flex: 0.7,
